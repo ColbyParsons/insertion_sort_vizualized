@@ -286,7 +286,10 @@
             var current = i;
             for(j = i; j >= 0; j--){
                 if(j == i) continue;
+                compare([current,j]);
+                await sleep(transitionSpeed);
                 if(data[current] >= data[j]){
+                    uncompare([current,j]);
                     break;
                 }else{
                     swapBars(j,current,transitionSpeed*3);
